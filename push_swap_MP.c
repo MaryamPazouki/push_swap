@@ -2,6 +2,15 @@
 #include<stdlib.h>
 
 
+
+// Define a linked list node
+typedef struct s_list
+{
+    int content;
+    t_list *next;
+}t_list; 
+
+
 void swap_stack(t_list **stack) 
 {
     if (*stack == NULL || (*stack) -> next == NULL)
@@ -117,18 +126,6 @@ void rrr(t_list **stack_a, t_list **stack_b)
     reverse_stack(stack_b);
 }
 
-
-
-
-
-// Define a linked list node
-typedef struct s_list
-{
-    int content;
-    t_list *next;
-}t_list;
-
-
 // Function to create a new node
 t_list *new_node(int value)
 {
@@ -166,7 +163,7 @@ int pop(t_list **stack)
     return value;
 }
 
-
+//----------------------------------------------------------
 
 // Function to get the maximum value in a stack
 int get_max(t_list *stack)
@@ -199,3 +196,47 @@ int get_max_bits(t_list *stack)
     }
     return(bits);
 }
+
+
+
+
+////--------------------sorting alg -----------------------------------
+
+
+// Radix sort using two stacks
+void radix_sort(t_node **a, t_node **b, int size) {
+    int max_bits = get_max_bits(*a);
+    for (int i = 0; i < max_bits; i++) {
+        for (int j = 0; j < size; j++) {
+            int num = pop(a);
+            if (((num >> i) & 1) == 1)
+                push(a, num); // Keep in stack 'a'
+            else
+                push(b, num); // Move to stack 'b'
+        }
+        while (*b)
+            push(a, pop(b)); // Move everything back to stack 'a'
+    }
+}
+
+// Split into chunks using the Turk algorithm
+void turk_sort(t_node **a, t_node **b, int size, int num_chunks) {
+    int base_chunk_size = size / num_chunks;
+    int remaining = size % num_chunks; // Handle uneven division
+    for (int chunk = 1; chunk <= num_chunks; chunk++) {
+        int chunk_size = base_chunk_size + (chunk == num_chunks ? remaining : 0);
+        printf("\nProcessing Chunk %d:\n", chunk);
+
+        int processed = 0;
+        int total_rotations = 0;
+
+        // Ensure we don't process more elements than the stack has
+        while (processed < chunk_size && *a) {
+            if ((*a)->value <= chunk * base_chunk_size) {
+                push(b, pop(a)); // Push to stack 'b' if within chunk range
+                processed++;
+            } else {
+                push(a, pop(a)); // Rotate within stack 'a'
+            }
+            total_rotations++;
+        }
