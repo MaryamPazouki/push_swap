@@ -44,24 +44,11 @@ void ft_ss(t_list **a, t_list **b, int j)
 }
 
 
-// ------------------PUSH-------------------------------------------------------------
 
-// both functions Pa and Pb : push_a and push_b
-void push_stack(t_list **source, t_list **goal)
-{
-    
-    if (*source == NULL || source == NULL)
-        return;
-    
-    t_list *swap;
 
-    swap = *source;
 
-    *source = swap -> next;
-    swap -> next = *goal;
-    *goal = swap;
-}
 
+//------------------------rotate------------------------------------------------------------------------
 
 // rotate a and b: shift up all elements of stack a/b by 1. The first element becomes the last one.
 
@@ -101,6 +88,8 @@ void rr(t_list **stack_a, t_list **stack_b)
 }
 
 
+//----------------------------------reverse-------------------------------------------------
+
 //reverse rotate a - shift down all elements of stack a by 1. The flast element becomes the first one.
 
 void reverse_stack(t_list **stack) 
@@ -139,6 +128,27 @@ void rrr(t_list **stack_a, t_list **stack_b)
 
 
 //------------------------------ function to move and creat -------------------------
+
+
+
+
+// ------------------PUSH-------------------------------------------------------------
+
+// both functions Pa and Pb : push_a and push_b
+void push_stack(t_list **source, t_list **goal)
+{
+    
+    if (*source == NULL || source == NULL)
+        return;
+    
+    t_list *swap;
+
+    swap = *source;
+
+    *source = swap -> next;
+    swap -> next = *goal;
+    *goal = swap;
+}
 // Function to create a new node
 t_list *new_node(int value)
 {
