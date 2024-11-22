@@ -73,10 +73,7 @@ int ft_check_duplicates(t_list *stack)
 		}
 		current = current -> next;
 	}
-	// Check for duplicate values in the stack
-	if (ft_check_duplicates(stack))
-		ft_error(); // Duplicate found, terminate with error
-return(0);
+	return(0);
 }
 
 
@@ -110,5 +107,8 @@ t_list	*ft_preprocess(int argc, char **argv)
 		// Handle multiple arguments
 		stack = ft_fill_stack(stack, argv, 1); // Skip argv[0] (program name)
 	}
+	// Check for duplicate values in the stack
+	if (ft_check_duplicates(stack))
+		ft_error(); // Duplicate found, terminate with error
 	return stack;
 }
