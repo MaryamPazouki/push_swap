@@ -9,9 +9,10 @@ SRC_DIR = srcs/
 
 SRC_1 = sources/push_swap/main.c \
 
-SRC_2 =	sources/ft_preprocessing.c\
+SRC_2 =	sources/ft_error_print.c\
+		sources/ft_preprocessing.c\
 		sources/sort3.c\
-		sources/ft_error_print.c\
+		
 
 		
 

@@ -2,7 +2,7 @@
 
 //Converts a string to an integer, handling spaces, signs, and overflows.
 
-int	ft_atoi2(const char *str)
+int	ft_atoi_long(const char *str)
 {
 	long long int	result;
 	int				sign;
@@ -47,7 +47,7 @@ t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index)
 	i = start_index;
 	while (sequence[i])
 	{
-		value = ft_atoi2(sequence[i]);
+		value = ft_atoi_long(sequence[i]);
 		stack = ft_lstadd_back(&stack, ft_lstnew(value));
 		i++;
 	}
@@ -75,8 +75,6 @@ int ft_check_duplicates(t_list *stack)
 	}
 	return(0);
 }
-
-
 
 /**
  * Processes command-line arguments to initialize a stack.
