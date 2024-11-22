@@ -17,28 +17,30 @@ void ft_swap(t_list **stack)
     *stack = second;             // Update the stack's top pointer to point to the new top (second node)
 }
 
-
 // Swap two elements of stack a
-void ft_sa(t_list **a)
+void ft_sa(t_list **a, int j)
 {
     ft_swap(a);  // Perform the swap
-    write(1, "sa\n", 3);  // Print the swap operation for stack a
+    if (j == 0)
+        write(1, "sa\n", 3);  // Print the swap operation for stack a
 }
 
 // Swap two elements of stack b
-void ft_sb(t_list **b)
+void ft_sb(t_list **b, int j)
 {
     ft_swap(b);  // Perform the swap
-    write(1, "sb\n", 3);  // Print the swap operation for stack b
+    if (j == 0)
+        write(1, "sb\n", 3);  // Print the swap operation for stack b
 }
 
 
 // Swap both stack a and stack b at the same time
-void ft_ss(t_list **a, t_list **b)
+void ft_ss(t_list **a, t_list **b, int j)
 {
     ft_swap(a);  // Swap stack a
     ft_swap(b);  // Swap stack b
-    write(1, "ss\n", 3);  // Print "ss" for both stacks
+    if (j == 0)
+        write(1, "ss\n", 3);  // Print "ss" for both stacks
 }
 
 
