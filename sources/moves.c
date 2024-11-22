@@ -37,6 +37,8 @@ void ft_sb(t_list **b, int j)
 // Swap both stack a and stack b at the same time
 void ft_ss(t_list **a, t_list **b, int j)
 {
+    if (!*a || !((*a)->next) || !*b || !((*b)->next))
+		return ;
     ft_swap(a);  // Swap stack a
     ft_swap(b);  // Swap stack b
     if (j == 0)
@@ -44,15 +46,11 @@ void ft_ss(t_list **a, t_list **b, int j)
 }
 
 
-
-
-
-
 //------------------------rotate------------------------------------------------------------------------
 
 // rotate a and b: shift up all elements of stack a/b by 1. The first element becomes the last one.
 
-void rotate_stack(t_list **stack)
+void ft_rotate(t_list **stack)
 {
     // Handle edge cases: empty stack or a single-node stack
     if (*stack == NULL || (*stack) -> next == NULL)
@@ -80,12 +78,33 @@ void rotate_stack(t_list **stack)
     first -> next = NULL;
 }
 
-//ra and rb at the same time.
-void rr(t_list **stack_a, t_list **stack_b)
+void ft_ra(t_list **a, int j)
 {
-    rotate_stack(stack_a);
-    rotate_stack(stack_b);
+    ft_rotate(a);  // Perform the swap
+    if (j == 0)
+        write(1, "ra\n", 3);  // Print the swap operation for stack a
 }
+
+// Swap two elements of stack b
+void ft_rb(t_list **b, int j)
+{
+    ft_rotate(b);  // Perform the swap
+    if (j == 0)
+        write(1, "rb\n", 3);  // Print the swap operation for stack b
+}
+
+
+// Swap both stack a and stack b at the same time
+void ft_rr(t_list **a, t_list **b, int j)
+{
+    if (!*a || !((*a)->next) || !*b || !((*b)->next))
+		return ;
+    ft_rotate(a);  // Swap stack a
+    ft_rotate(b);  // Swap stack b
+    if (j == 0)
+        write(1, "rr\n", 3);  // Print "ss" for both stacks
+}
+
 
 
 //----------------------------------reverse-------------------------------------------------
