@@ -13,7 +13,7 @@ int	main(int argc, char **argv)
 		ft_error();
 	}
 	// check if stack a is already sorted! 
-	if (!ft_sorted(a))
+	if (!ft_checksorted(a))
 		ft_sort(&a);
 
 	ft_free(&a);

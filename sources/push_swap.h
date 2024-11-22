@@ -20,6 +20,8 @@ t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index);
 int 	ft_check_duplicates(t_list *stack);
 t_list	*ft_preprocess(int argc, char **argv);
 
+int ft_check_sorted(t_list *stack);
+
 void ft_error(void);
 
 
