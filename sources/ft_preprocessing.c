@@ -48,7 +48,7 @@ t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index)
 	while (sequence[i])
 	{
 		value = ft_atoi2(sequence[i]);
-		stack = ft_add_back(&stack, ft_stack_new(value));
+		stack = ft_lstadd_back(&stack, ft_lstnew(value));
 		i++;
 	}
 

@@ -7,9 +7,12 @@ OBJ_DIR = obj/
 BONUS = checker
 SRC_DIR = srcs/
 
-SRC_1 = sources/push_swap/push_swap.c \
+SRC_1 = sources/push_swap/main.c \
 
-SRC_2 =	sources/push_swap/
+SRC_2 =	sources/ft_preprocessing.c\
+		sources/sort3.c\
+		sources/ft_error_print.c\
+
 		
 
 

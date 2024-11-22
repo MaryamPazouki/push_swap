@@ -13,6 +13,18 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
-// functions
+// preprocessing functions
+
+int		ft_atoi2(const char *str);
+t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index);
+int 	ft_check_duplicates(t_list *stack);
+t_list	*ft_preprocess(int argc, char **argv);
+
+void ft_error(void);
+
+
+
+
+
 
 #endif

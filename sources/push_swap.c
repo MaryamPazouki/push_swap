@@ -3,13 +3,6 @@
 
 
 
-// Define a linked list node
-typedef struct s_list
-{
-    int content;
-    t_list *next;
-}t_list; 
-
 
 void swap_stack(t_list **stack) 
 {
