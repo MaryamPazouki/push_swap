@@ -126,6 +126,8 @@ void rrr(t_list **stack_a, t_list **stack_b)
     reverse_stack(stack_b);
 }
 
+
+//------------------------------ function to move and creat -------------------------
 // Function to create a new node
 t_list *new_node(int value)
 {
@@ -204,7 +206,7 @@ int get_max_bits(t_list *stack)
 
 
 // Radix sort using two stacks
-void radix_sort(t_node **a, t_node **b, int size) {
+void radix_sort(t_list **a, t_list **b, int size) {
     int max_bits = get_max_bits(*a);
     for (int i = 0; i < max_bits; i++) {
         for (int j = 0; j < size; j++) {
@@ -220,10 +222,12 @@ void radix_sort(t_node **a, t_node **b, int size) {
 }
 
 // Split into chunks using the Turk algorithm
-void turk_sort(t_node **a, t_node **b, int size, int num_chunks) {
+void turk_sort(t_list **a, t_list **b, int size, int num_chunks) 
+{
     int base_chunk_size = size / num_chunks;
     int remaining = size % num_chunks; // Handle uneven division
-    for (int chunk = 1; chunk <= num_chunks; chunk++) {
+    for (int chunk = 1; chunk <= num_chunks; chunk++) 
+    {
         int chunk_size = base_chunk_size + (chunk == num_chunks ? remaining : 0);
         printf("\nProcessing Chunk %d:\n", chunk);
 
@@ -232,7 +236,7 @@ void turk_sort(t_node **a, t_node **b, int size, int num_chunks) {
 
         // Ensure we don't process more elements than the stack has
         while (processed < chunk_size && *a) {
-            if ((*a)->value <= chunk * base_chunk_size) {
+            if ((*a)->content <= chunk * base_chunk_size) {
                 push(b, pop(a)); // Push to stack 'b' if within chunk range
                 processed++;
             } else {
@@ -240,3 +244,5 @@ void turk_sort(t_node **a, t_node **b, int size, int num_chunks) {
             }
             total_rotations++;
         }
+    }
+}
