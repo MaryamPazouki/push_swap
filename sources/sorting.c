@@ -123,9 +123,9 @@ int main()
     t_list *a = NULL;
 
     // Example: 3 numbers to be sorted
-    push(&a, 1);
-    push(&a, 4);
     push(&a, 2);
+    push(&a, 3);
+    push(&a, 1);
 
     printf("Before sorting:\n");
     t_list *temp = a;
