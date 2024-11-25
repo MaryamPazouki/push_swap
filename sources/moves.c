@@ -78,29 +78,30 @@ void ft_rotate(t_list **stack)
     first -> next = NULL;
 }
 
+// rotate two elements of stack b
 void ft_ra(t_list **a, int j)
 {
-    ft_rotate(a);  // Perform the swap
+    ft_rotate(a);  // Perform the rotate
     if (j == 0)
         write(1, "ra\n", 3);  // Print the swap operation for stack a
 }
 
-// Swap two elements of stack b
+// rotate two elements of stack b
 void ft_rb(t_list **b, int j)
 {
-    ft_rotate(b);  // Perform the swap
+    ft_rotate(b);  // Perform the rotate
     if (j == 0)
-        write(1, "rb\n", 3);  // Print the swap operation for stack b
+        write(1, "rb\n", 3);  // Print the rotate operation for stack b
 }
 
 
-// Swap both stack a and stack b at the same time
+// rotate both stack a and stack b at the same time
 void ft_rr(t_list **a, t_list **b, int j)
 {
     if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;
-    ft_rotate(a);  // Swap stack a
-    ft_rotate(b);  // Swap stack b
+    ft_rotate(a);  // rotate stack a
+    ft_rotate(b);  // rotate stack b
     if (j == 0)
         write(1, "rr\n", 3);  // Print "ss" for both stacks
 }
@@ -109,21 +110,16 @@ void ft_rr(t_list **a, t_list **b, int j)
 
 //----------------------------------reverse-------------------------------------------------
 
-//reverse rotate a - shift down all elements of stack a by 1. The flast element becomes the first one.
-
-void reverse_stack(t_list **stack) 
+// Reverse rotate: shift down all elements of a stack by 1
+void ft_reverse(t_list **stack) 
 {
-    // Handle edge cases: empty stack or a single-node stack
-    if (*stack == NULL || (*stack)->next == NULL)
+    if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
         return;
 
-    t_list *prev;
-    t_list *current;
+    t_list *prev = NULL;  
+    t_list *current = *stack;
 
-    prev = NULL;  // To keep track of the second-to-last node
-    current = *stack;   // Pointer to traverse the stack
-
-    // Traverse to the last node, keeping track of the second-to-last node
+    // Traverse to the last node
     while (current->next != NULL) {
         prev = current;
         current = current->next;
@@ -137,37 +133,96 @@ void reverse_stack(t_list **stack)
     *stack = current;
 }
 
-
-// rra and rrb at the same time.
-void rrr(t_list **stack_a, t_list **stack_b)
+// Helper function for reverse rotate with logging
+void ft_reverse_and_log(t_list **stack, int j, const char *log_message) 
 {
-    reverse_stack(stack_a);
-    reverse_stack(stack_b);
+    if (stack && *stack && (*stack)->next) {
+        ft_reverse(stack);
+        if (j == 0 && log_message)
+            write(1, log_message, strlen(log_message));
+    }
 }
 
+void ft_rra(t_list **a, int j)
+{
+    ft_reverse_and_log(a, j, "rra\n");
+}
 
-//------------------------------ function to move and creat -------------------------
+void ft_rrb(t_list **b, int j)
+{
+    ft_reverse_and_log(b, j, "rrb\n");
+}
 
+void ft_rrr(t_list **a, t_list **b, int j)
+{
+    int rotated = 0;
 
+    if (a && *a && (*a)->next) {
+        ft_reverse(a);
+        rotated = 1;
+    }
+    if (b && *b && (*b)->next) {
+        ft_reverse(b);
+        rotated = 1;
+    }
 
+    if (j == 0 && rotated)
+        write(1, "rrr\n", 4);
+}
 
 // ------------------PUSH-------------------------------------------------------------
 
-// both functions Pa and Pb : push_a and push_b
-void push_stack(t_list **source, t_list **goal)
+// ft_pa - Push the top element of stack b onto stack a.
+void ft_pa(t_list **a, t_list **b, int j)
 {
-    
-    if (*source == NULL || source == NULL)
+    t_list *temp;
+
+    // Check if stack b is empty
+    if (b == NULL || *b == NULL)
         return;
-    
-    t_list *swap;
 
-    swap = *source;
+    // Pop the top element from stack b
+    temp = *b;           // Store the top element of stack b
+    *b = (*b)->next;     // Advance stack b's top pointer
 
-    *source = swap -> next;
-    swap -> next = *goal;
-    *goal = swap;
+    // Push the element onto stack a
+    temp->next = *a;     // Link the popped element to the current top of stack a
+    *a = temp;           // Update stack a's top pointer
+
+    // Print the operation if j is 0
+    if (j == 0)
+        write(1, "pa\n", 3);
 }
+
+// ft_pb - Push the top element of stack a onto stack b.
+void ft_pb(t_list **a, t_list **b, int j)
+{
+    t_list *temp;
+
+    // Check if stack a is empty
+    if (a == NULL || *a == NULL)
+        return;
+
+    // Pop the top element from stack a
+    temp = *a;           // Store the top element of stack a
+    *a = (*a)->next;     // Advance stack a's top pointer
+
+    // Push the element onto stack a
+    temp->next = *a;     // Link the popped element to the current top of stack a
+    *a = temp;           // Update stack a's top pointer
+
+    // Print the operation if j is 0
+    if (j == 0)
+        write(1, "pa\n", 3);
+}
+
+
+
+
+//// -------------------------------------------extra functions------------------------------
+
+
+
 // Function to create a new node
 t_list *new_node(int value)
 {
