@@ -17,40 +17,29 @@ t_list **ft_push_alltill3_ab(t_list **a, t_list **b)
 }
 
 
-t_list **ft_sort_a(t_list **stack_a, t_list **stack_b)
+t_list **ft_sort_a(t_list **a, t_list **b)
 {
-    while(*stack_b)
-    {
+    char *opt_cost;
+	t_list *temp;
+
+	temp = *b;
+	while (temp) {
+        opt_cost = ft_optimal_cost(*a, *b); // Get the optimal move
+
+        if (strcmp(opt_cost, "rarb") == 0)
+            ft_move_rarb(a, b, (*b)->content);
+        else if (strcmp(opt_cost, "rrarb") == 0)
+            ft_move_rrarb(a, b, (*b)->content);
+        else if (strcmp(opt_cost, "rarrb") == 0)
+            ft_move_rarrb(a, b, (*b)->content);
+        else if (strcmp(opt_cost, "rrarrb") == 0)
+            ft_move_rrarrb(a, b, (*b)->content);
+        else
+			temp = temp -> next;
 
     }
+	retuen(a);
 }
-
-
-
-/*int	ft_rotate_type_ba(t_stack *a, t_stack *b)
-{
-	int		i;
-	t_stack	*tmp;
-
-	tmp = b;
-	i = ft_case_rrarrb_a(a, b, b->nbr);
-	while (tmp)
-	{
-		if (i > ft_case_rarb_a(a, b, tmp->nbr))
-			i = ft_case_rarb_a(a, b, tmp->nbr);
-		if (i > ft_case_rrarrb_a(a, b, tmp->nbr))
-			i = ft_case_rrarrb_a(a, b, tmp->nbr);
-		if (i > ft_case_rarrb_a(a, b, tmp->nbr))
-			i = ft_case_rarrb_a(a, b, tmp->nbr);
-		if (i > ft_case_rrarb_a(a, b, tmp->nbr))
-			i = ft_case_rrarb_a(a, b, tmp->nbr);
-		tmp = tmp->next;
-	}
-	return (i);
-}
-*/
-
-
 
 
 
