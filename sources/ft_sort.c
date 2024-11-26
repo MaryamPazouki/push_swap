@@ -38,7 +38,7 @@ t_list **ft_sort_a(t_list **a, t_list **b)
 			temp = temp -> next;
 
     }
-	retuen(a);
+	return(a);
 }
 
 
