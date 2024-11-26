@@ -19,12 +19,36 @@ t_list **ft_push_alltill3_ab(t_list **a, t_list **b)
 
 t_list **ft_sort_a(t_list **stack_a, t_list **stack_b)
 {
-    while(stack_b)
+    while(*stack_b)
     {
-        
+
     }
 }
 
+
+
+/*int	ft_rotate_type_ba(t_stack *a, t_stack *b)
+{
+	int		i;
+	t_stack	*tmp;
+
+	tmp = b;
+	i = ft_case_rrarrb_a(a, b, b->nbr);
+	while (tmp)
+	{
+		if (i > ft_case_rarb_a(a, b, tmp->nbr))
+			i = ft_case_rarb_a(a, b, tmp->nbr);
+		if (i > ft_case_rrarrb_a(a, b, tmp->nbr))
+			i = ft_case_rrarrb_a(a, b, tmp->nbr);
+		if (i > ft_case_rarrb_a(a, b, tmp->nbr))
+			i = ft_case_rarrb_a(a, b, tmp->nbr);
+		if (i > ft_case_rrarb_a(a, b, tmp->nbr))
+			i = ft_case_rrarb_a(a, b, tmp->nbr);
+		tmp = tmp->next;
+	}
+	return (i);
+}
+*/
 
 
 
