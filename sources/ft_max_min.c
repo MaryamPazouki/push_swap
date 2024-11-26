@@ -22,7 +22,7 @@ int ft_max(t_list *stack)
 
 int ft_min(t_list *stack)
 {
-    int max;
+    int min;
 
     if (!stack)
         return 0; 

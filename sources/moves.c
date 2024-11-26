@@ -173,7 +173,7 @@ void ft_rrr(t_list **a, t_list **b, int j)
 // ------------------PUSH-------------------------------------------------------------
 
 // ft_pa - Push the top element of stack b onto stack a.
-void ft_pa(t_list **a, t_list **b, int j)
+void ft_push_to_a(t_list **a, t_list **b, int j)
 {
     t_list *temp;
 
@@ -195,7 +195,7 @@ void ft_pa(t_list **a, t_list **b, int j)
 }
 
 // ft_pb - Push the top element of stack a onto stack b.
-void ft_pb(t_list **a, t_list **b, int j)
+void ft_push_to_b(t_list **a, t_list **b, int j)
 {
     t_list *temp;
 
@@ -223,39 +223,7 @@ void ft_pb(t_list **a, t_list **b, int j)
 
 
 
-// Function to create a new node
-t_list *new_node(int value)
-{
-    t_list *node;
-
-    node = (t_list *) malloc(sizeof(t_list));
-    if (!node)
-        return NULL;
-    node -> content = value;
-    node -> next = NULL;
-}
-
-// Push a value to the top of the stack
-void push(t_list **stack, int value)
-{
-    t_list *node;
-
-    node = new_node(value);
-    node-> next = *stack;
-    *stack = node;
-}
 
 
-// Pop a value from the top of the stack
 
-int pop(t_list **stack)
-{
-    t_list *temp;
-    int value;
 
-    temp = *stack;
-    value = temp-> content;
-    *stack = temp ->next;
-    free(temp);
-    return value;
-}
