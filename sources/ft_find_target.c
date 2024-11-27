@@ -7,8 +7,8 @@ int ft_find_target_a(t_list *stack_a, int push_value)
     if (!stack_a)
         return -1;
 
-    t_stack *current_node = stack_a;
-    t_stack *next_node = stack_a->next;
+    t_list *current_node = stack_a;
+    t_list *next_node = stack_a->next;
     int i = 0;
 
     if (push_value > ft_max(stack_a) || push_value < ft_min(stack_a)) {
@@ -18,10 +18,10 @@ int ft_find_target_a(t_list *stack_a, int push_value)
 
     while (current_node && next_node)
     {
-        if (current_node->content > push_value && next_node->content < push_value)
+        if (current_node -> content > push_value && next_node -> content < push_value)
             return i + 1; // Return the index of the next node
         current_node = next_node;
-        next_node = next_node ->next;
+        next_node = next_node -> next;
         i++;
     }
     return 0; // Default to placing at the top

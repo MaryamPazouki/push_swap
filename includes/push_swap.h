@@ -3,7 +3,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
+# include <unistd.h>
+//# include "../libft/libft.h"
 
 typedef struct s_list
 {
@@ -23,10 +24,20 @@ int ft_find_position(t_list *stack, int value);
 
 int ft_find_target_a(t_list *stack_a, int push_value);
 
-void ft_free_stack(t_list **stack);
+void ft_free(t_list **stack);
 
 int ft_max(t_list *stack);
 int ft_min(t_list *stack);
+
+int	ft_isdigit(int c);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+int	ft_lstsize(t_list *lst);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_freestr(char **str_array);
+char	**ft_split(char const *s, char c);
+int	ft_strcmp(const char *s1, const char *s2);
 
 void ft_update_cost(t_list *a, t_list *b, int *cost, char **operation, 
                     int (*cost_function)(t_list *, t_list *, int), const char *op_name, int value);
@@ -40,16 +51,17 @@ t_list	*ft_preprocess(int argc, char **argv);
 
 void sort_three_numbers(t_list **a);
 t_list **ft_push_alltill3_ab(t_list **a, t_list **b);
+
 t_list **ft_sort_a(t_list **a, t_list **b);
 t_list *ft_last_sort_a(t_list *a);
-void ft_sort(t_list *stack_a);
+void ft_sort(t_list **stack_a);
 
 int	main(int argc, char **argv);
 
-int ft_move_rarb(t_list *a, t_list*b, int value);
-int ft_move_rrarb(t_list *a, t_list *b, int value);
-int ft_move_rarrb(t_list *a, t_list *b, int value);
-int ft_move_rrarrb(t_list *a, t_list*b, int value);
+int ft_move_rarb(t_list **a, t_list **b, int value);
+int ft_move_rrarb(t_list **a, t_list **b, int value);
+int ft_move_rarrb(t_list **a, t_list **b, int value);
+int ft_move_rrarrb(t_list **a, t_list **b, int value);
 
 int ft_cost_rarb(t_list *a, t_list *b, int value);
 int ft_cost_rrarrb(t_list *a, t_list *b, int value);

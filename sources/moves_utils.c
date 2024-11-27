@@ -207,12 +207,12 @@ void ft_push_to_b(t_list **a, t_list **b, int j)
     temp = *a;           // Store the top element of stack a
     *a = (*a)->next;     // Advance stack a's top pointer
 
-    // Push the element onto stack a
-    temp->next = *a;     // Link the popped element to the current top of stack a
-    *a = temp;           // Update stack a's top pointer
+    // Push the element onto stack b
+    temp->next = *b;     // Link the popped element to the current top of stack b
+    *b = temp;           // Update stack b's top pointer
 
     // Print the operation if j is 0
     if (j == 0)
-        write(1, "pa\n", 3);
+        write(1, "pb\n", 3);
 }
 

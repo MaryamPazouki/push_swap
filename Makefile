@@ -8,9 +8,7 @@ CFLAGS = -Wall -Wextra -Werror
 # Paths
 SRC_DIR = sources/
 OBJ_DIR = obj/
-INCLUDES = -I includes/ -I libft/
-LIBFTDIR = libft/
-LIBFT = -L $(LIBFTDIR) -lft
+INCLUDES = -I includes/
 
 # Source Files
 SRC = $(SRC_DIR)main.c \
@@ -22,8 +20,9 @@ SRC = $(SRC_DIR)main.c \
       $(SRC_DIR)ft_max_min.c \
       $(SRC_DIR)ft_optimal_cost.c \
       $(SRC_DIR)ft_preprocessing.c \
-      $(SRC_DIR)sort3.c \
-      $(SRC_DIR)ft_sort.c \
+      $(SRC_DIR)ft_sort_3.c \
+      $(SRC_DIR)ft_sort_main.c \
+      $(SRC_DIR)list_utils_split.c \
       $(SRC_DIR)list_utils_libft.c \
       $(SRC_DIR)move.c \
       $(SRC_DIR)move_cost_utils.c \
@@ -37,10 +36,8 @@ all: $(NAME)
 
 # Build Executable
 $(NAME): $(OBJ)
-	@echo "Compiling libft..."
-	@make -C $(LIBFTDIR)
 	@echo "Linking $(NAME)..."
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 # Compile .o Files
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
@@ -51,13 +48,11 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 clean:
 	@echo "Cleaning object files..."
 	$(RM) -r $(OBJ_DIR)
-	@make -C $(LIBFTDIR) clean
 
 # Full Clean (Object Files and Executable)
 fclean: clean
 	@echo "Removing $(NAME)..."
 	$(RM) $(NAME)
-	@make -C $(LIBFTDIR) fclean
 
 # Rebuild Everything
 re: fclean all

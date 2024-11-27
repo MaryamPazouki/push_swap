@@ -1,5 +1,30 @@
 #include "push_swap.h"
 
+int	ft_isdigit(int c)
+{
+	if ((c >= 48 && c <= 57))
+		return (1);
+	else
+		return (0);
+}
+
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*tmp;
+
+	if (!lst || !del)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = NULL;
+}
+
+
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
@@ -72,4 +97,28 @@ t_list	*ft_lstnew(void *content)
 }
 
 
+void	ft_freestr(char **str_array)
+{
+	int	i;
 
+	if (!str_array)
+		return;
+	i = 0;
+	while (str_array[i])
+	{
+		free(str_array[i]); // Free each string in the array
+		i++;
+	}
+	free(str_array); // Free the array itself
+}
+
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s1 == *s2) 
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2); 
+}

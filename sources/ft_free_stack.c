@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void ft_free_stack(t_list **stack)
+void ft_free(t_list **stack)
 {
     t_list *current;
     t_list *next;
