@@ -5,7 +5,7 @@ t_list **ft_push_alltill3_ab(t_list **a, t_list **b)
     int size_a;
 
     size_a = ft_lstsize(*a); 
-    if (!ft_checke_sorted(*a))
+    if (!ft_check_sorted(*a))
     {
         while(size_a-- > 3)
         {
