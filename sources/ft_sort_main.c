@@ -12,8 +12,7 @@ void ft_push_alltill3_ab(t_list **a, t_list *b)
             ft_push_to_b(a, b, 1);
             size_a--;
         }
-    }
-    return;  // Return the address of b, which is a pointer to the stack b
+    } 
 }
 
 
@@ -37,7 +36,6 @@ void ft_sort_a(t_list **a, t_list **b)
         else
             temp = temp->next;  // Move to the next element
     }
-    return;  // Return the address of a, which is a pointer to the stack a
 }
 
 
@@ -56,8 +54,7 @@ void ft_last_sort_a(t_list **a)
 	{
 		while ((*a)->content != ft_min(*a))
 		    ft_rra(a, 0);
-	}
-    return;			
+	}			
 }
 
 
