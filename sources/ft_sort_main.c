@@ -5,14 +5,11 @@ void ft_push_alltill3_ab(t_list **a, t_list *b)
     int size_a;
 
     size_a = ft_lstsize(*a); 
-    if (!ft_check_sorted(*a))
+    while(size_a > 3)
     {
-        while(size_a-- > 3)
-        {
-            ft_push_to_b(a, b, 1);
-            size_a--;
-        }
-    } 
+        ft_push_to_b(a, b, 1);
+        size_a--;
+    }
 }
 
 
