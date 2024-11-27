@@ -11,14 +11,19 @@ SRC_1 = sources/push_swap/main.c \
 
 SRC_2 =	sources/ft_check_sorted\
 		sources/ft_error_print.c\
+		sources/ft_find_position.c\
+		sources/ft_find_target.c\
+		sources/ft_free_stack.c\
+		sources/ft_max_min.c\
+		sources/ft_optimal_cost.c\
 		sources/ft_preprocessing.c\
 		sources/sort3.c\
+		sources/ft_sort.c\
+		sources/list_utils_libft.c\
+		sources/move.c\
+		sources/move_cost_utils.c\
+		sources/move_utils.c\
 		
-
-		
-
-
-
 
 
 OBJ_1 = ${SRC_1:.c=.o}
