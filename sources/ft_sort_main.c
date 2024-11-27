@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_list *ft_push_alltill3_ab(t_list **a, t_list *b)
+void ft_push_alltill3_ab(t_list **a, t_list *b)
 {
     int size_a;
 
@@ -13,11 +13,11 @@ t_list *ft_push_alltill3_ab(t_list **a, t_list *b)
             size_a--;
         }
     }
-    return (b);  // Return the address of b, which is a pointer to the stack b
+    return;  // Return the address of b, which is a pointer to the stack b
 }
 
 
-t_list **ft_sort_a(t_list **a, t_list **b)
+void ft_sort_a(t_list **a, t_list **b)
 {
     char *opt_cost;
     t_list *temp;
@@ -37,11 +37,11 @@ t_list **ft_sort_a(t_list **a, t_list **b)
         else
             temp = temp->next;  // Move to the next element
     }
-    return a;  // Return the address of a, which is a pointer to the stack a
+    return;  // Return the address of a, which is a pointer to the stack a
 }
 
 
-t_list *ft_last_sort_a(t_list **a)
+void ft_last_sort_a(t_list **a)
 {
     int i;
 
@@ -57,7 +57,7 @@ t_list *ft_last_sort_a(t_list **a)
 		while ((*a)->content != ft_min(*a))
 		    ft_rra(a, 0);
 	}
-    return(*a);			
+    return;			
 }
 
 
@@ -71,8 +71,8 @@ void ft_sort(t_list **stack_a)
         ft_sa(stack_a, 0);
     else
     {   
-        stack_b = ft_push_alltill3_ab(stack_a, stack_b);
-        stack_a = ft_sort_a(stack_a, &stack_b);
-        stack_a = ft_last_sort_a(stack_a);
+        ft_push_alltill3_ab(stack_a, stack_b);
+        ft_sort_a(stack_a, &stack_b);
+        ft_last_sort_a(stack_a);
     }
 }
