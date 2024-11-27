@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_list **ft_push_alltill3_ab(t_list **a, t_list **b)
+t_list *ft_push_alltill3_ab(t_list **a, t_list *b)
 {
     int size_a;
 
@@ -41,23 +41,20 @@ t_list **ft_sort_a(t_list **a, t_list **b)
 }
 
 
-
-
-
 t_list *ft_last_sort_a(t_list **a)
 {
     int i;
 
-    i = ft_find_position(a, ft_min(a));
+    i = ft_find_position(a, ft_min(*a));
 
 	if (i < ft_lstsize(a) / 2)
 	{
-		while ((*a)->content != ft_min(a))
+		while ((*a)->content != ft_min(*a))
 		    ft_ra(a, 0);
 	}
 	else
 	{
-		while ((*a)->content != ft_min(a))
+		while ((*a)->content != ft_min(*a))
 		    ft_rra(a, 0);
 	}
     return(*a);			
@@ -67,6 +64,8 @@ t_list *ft_last_sort_a(t_list **a)
 void ft_sort(t_list **stack_a)
 {
     t_list *stack_b;
+
+    stack_b = NULL;
 
     if (ft_lstsize(*stack_a) == 2)
         ft_sa(stack_a, 0);
