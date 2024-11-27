@@ -1,54 +1,66 @@
+# Project Name
 NAME = push_swap
+
+# Compiler and Flags
 CC = gcc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libft/
+CFLAGS = -Wall -Wextra -Werror
+
+# Paths
+SRC_DIR = sources/
 OBJ_DIR = obj/
-BONUS = checker
-SRC_DIR = srcs/
+INCLUDES = -I includes/ -I libft/
+LIBFTDIR = libft/
+LIBFT = -L $(LIBFTDIR) -lft
 
-SRC_1 = sources/push_swap/main.c \
+# Source Files
+SRC = $(SRC_DIR)main.c \
+      $(SRC_DIR)ft_check_sorted.c \
+      $(SRC_DIR)ft_error_print.c \
+      $(SRC_DIR)ft_find_position.c \
+      $(SRC_DIR)ft_find_target.c \
+      $(SRC_DIR)ft_free_stack.c \
+      $(SRC_DIR)ft_max_min.c \
+      $(SRC_DIR)ft_optimal_cost.c \
+      $(SRC_DIR)ft_preprocessing.c \
+      $(SRC_DIR)sort3.c \
+      $(SRC_DIR)ft_sort.c \
+      $(SRC_DIR)list_utils_libft.c \
+      $(SRC_DIR)move.c \
+      $(SRC_DIR)move_cost_utils.c \
+      $(SRC_DIR)move_utils.c
 
-SRC_2 =	sources/ft_check_sorted\
-		sources/ft_error_print.c\
-		sources/ft_find_position.c\
-		sources/ft_find_target.c\
-		sources/ft_free_stack.c\
-		sources/ft_max_min.c\
-		sources/ft_optimal_cost.c\
-		sources/ft_preprocessing.c\
-		sources/sort3.c\
-		sources/ft_sort.c\
-		sources/list_utils_libft.c\
-		sources/move.c\
-		sources/move_cost_utils.c\
-		sources/move_utils.c\
-		
+# Object Files
+OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
+# Default Target
+all: $(NAME)
 
-OBJ_1 = ${SRC_1:.c=.o}
-OBJ_2 = ${SRC_2:.c=.o}
+# Build Executable
+$(NAME): $(OBJ)
+	@echo "Compiling libft..."
+	@make -C $(LIBFTDIR)
+	@echo "Linking $(NAME)..."
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
 
-INCLUDE = -L ./libft -lft
+# Compile .o Files
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
-
-${NAME}: ${OBJ_1} ${OBJ_2}
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
-
-
-all: ${NAME}
-
+# Clean Object Files
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${NAME}
-	@cd $(LIBFTDIR) && $(MAKE) clean
+	@echo "Cleaning object files..."
+	$(RM) -r $(OBJ_DIR)
+	@make -C $(LIBFTDIR) clean
 
+# Full Clean (Object Files and Executable)
 fclean: clean
-	${RM} ${NAME}
-	@cd $(LIBFTDIR) && $(MAKE) fclean
+	@echo "Removing $(NAME)..."
+	$(RM) $(NAME)
+	@make -C $(LIBFTDIR) fclean
 
-re: clean all
+# Rebuild Everything
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+# Phony Targets
+.PHONY: all clean fclean re
