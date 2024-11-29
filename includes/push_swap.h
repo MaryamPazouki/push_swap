@@ -30,30 +30,31 @@ int ft_max(t_list *stack);
 int ft_min(t_list *stack);
 
 int	ft_isdigit(int c);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-int	ft_lstsize(t_list *lst);
-void	ft_lstclear(t_list **lst, void (*del)(void*));
+void ft_lstadd_back(t_list **lst, t_list *new);
+t_list *ft_lstnew(long content);
+t_list *ft_lstlast(t_list *lst);
+int ft_lstsize(t_list *lst);
+void ft_lstclear(t_list **lst);
 void	ft_freestr(char **str_array);
 char	**ft_split(char const *s, char c);
-int	ft_strcmp(const char *s1, const char *s2);
+//int	ft_strcmp(const char *s1, const char *s2);
 
-void ft_update_cost(t_list *a, t_list *b, int *cost, char **operation, 
-                    int (*cost_function)(t_list *, t_list *, int), const char *op_name, int value);
-void ft_calculate_cost(t_list *a, t_list *b, int *cost, char **operation, int value);
-char *ft_optimal_cost(t_list *a, t_list *b);
+//void ft_update_cost(t_list *a, t_list *b, int *cost, char **operation, 
+//                    int (*cost_function)(t_list *, t_list *, int), const char *op_name, int value);
+//void ft_calculate_cost(t_list *a, t_list *b, int *cost, char **operation, int value);
+//char *ft_optimal_cost(t_list *a, t_list *b);
+int ft_optimal_cost(t_list *a, t_list *b);
 
 int		ft_atoi_long(const char *str);
 t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index);
 int 	ft_check_duplicates(t_list *stack);
 t_list	*ft_preprocess(int argc, char **argv);
 
-void sort_three_numbers(t_list **a);
-t_list **ft_push_alltill3_ab(t_list **a, t_list **b);
+	void sort_three_numbers(t_list **a);
+void ft_push_alltill3_ab(t_list **a, t_list **b);
 
-t_list **ft_sort_a(t_list **a, t_list **b);
-t_list *ft_last_sort_a(t_list *a);
+void ft_sort_a(t_list **a, t_list **b);
+void ft_last_sort_a(t_list **a);
 void ft_sort(t_list **stack_a);
 
 int	main(int argc, char **argv);

@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 
-
+/*
 void ft_update_cost(t_list *a, t_list *b, int *cost, char **operation, 
                     int (*cost_function)(t_list *, t_list *, int), const char *op_name, int value) 
 {
@@ -43,43 +43,27 @@ char *ft_optimal_cost(t_list *a, t_list *b)
     return operation; // Return the optimal operation as a string
 }
 
+*/
 
-
-/*
-char ft_optimal_cost(t_list *a, t_list *b)
+int ft_optimal_cost(t_list *a, t_list *b)
 {
     int cost;
     t_list *temp;
-    char operation;
 
     temp = b;    
     cost = ft_cost_rrarrb(a,b,temp->content); // initialize cost
-    operation = "rrarrb";
 
     while(temp)
     {
         if (cost > ft_cost_rarb(a,b,temp->content))
-        {
             cost = ft_cost_rarb(a,b,temp->content);
-            operation = "rarb";
-        }
         if (cost > ft_cost_rrarb(a,b,temp->content))
-        {
             cost = ft_cost_rrarb(a,b,temp->content);
-            operation = "rrarb";
-        }
         if (cost > ft_cost_rarrb(a,b,temp->content))
-        {
             cost = ft_cost_rarrb(a,b,temp->content);
-            operation = "rarrb";
-        }
-        if (cost > ft_cost_rrarrb(a,b,temp->content)
-        {
+        if (cost > ft_cost_rrarrb(a,b,temp->content))
             cost = ft_cost_rrarrb(a,b,temp->content);
-            operation = "rrarrb";
-        }
-
         temp = temp -> next;
     }
-    return(operation);
-}*/
+    return(cost);
+}

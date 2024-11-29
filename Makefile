@@ -22,7 +22,7 @@ SRC = $(SRC_DIR)main.c \
       $(SRC_DIR)ft_preprocessing.c \
       $(SRC_DIR)ft_sort_3.c \
       $(SRC_DIR)ft_sort_main.c \
-      $(SRC_DIR)list_utils_split.c \
+      $(SRC_DIR)libft_utils_split.c \
       $(SRC_DIR)list_utils_libft.c \
       $(SRC_DIR)move.c \
       $(SRC_DIR)move_cost_utils.c \
