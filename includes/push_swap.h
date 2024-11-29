@@ -29,6 +29,7 @@ void ft_free(t_list **stack);
 int ft_max(t_list *stack);
 int ft_min(t_list *stack);
 
+size_t	ft_strlen(const char *str);
 int	ft_isdigit(int c);
 void ft_lstadd_back(t_list **lst, t_list *new);
 t_list *ft_lstnew(long content);

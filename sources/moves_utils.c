@@ -139,7 +139,7 @@ void ft_reverse_and_log(t_list **stack, int j, const char *log_message)
     if (stack && *stack && (*stack)->next) {
         ft_reverse(stack);
         if (j == 0 && log_message)
-            write(1, log_message, strlen(log_message));
+            write(1, log_message, ft_strlen(log_message));
     }
 }
 

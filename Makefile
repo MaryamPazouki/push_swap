@@ -11,7 +11,7 @@ OBJ_DIR = obj/
 INCLUDES = -I includes/
 
 # Source Files
-SRC = $(SRC_DIR)main.c \
+SRC = $(SRC_DIR)push_swap.c \
       $(SRC_DIR)ft_check_sorted.c \
       $(SRC_DIR)ft_error_print.c \
       $(SRC_DIR)ft_find_position.c \
@@ -25,8 +25,8 @@ SRC = $(SRC_DIR)main.c \
       $(SRC_DIR)libft_utils_split.c \
       $(SRC_DIR)list_utils_libft.c \
       $(SRC_DIR)move.c \
-      $(SRC_DIR)move_cost_utils.c \
-      $(SRC_DIR)move_utils.c
+      $(SRC_DIR)moves_cost_utils.c \
+      $(SRC_DIR)moves_utils.c
 
 # Object Files
 OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)

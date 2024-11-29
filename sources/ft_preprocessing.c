@@ -43,19 +43,12 @@ int	ft_atoi_long(const char *str)
 t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index)
 {
 	int		i;
-	int		*value; // Pointer to hold allocated integer.
+	long		value; // Pointer to hold allocated integer.
 
 	i = start_index;
 	while (sequence[i])
 	{
-		value = malloc(sizeof(int)); // Allocate memory for the integer.
-		if (!value)
-		{
-			// Handle memory allocation failure.
-			ft_lstclear(&stack, free); // Assumes ft_lstclear exists to free the list.
-			return (NULL);
-		}
-		*value = ft_atoi_long(sequence[i]); // Assign the integer value.
+		value = ft_atoi_long(sequence[i]); // Assign the integer value.
 		ft_lstadd_back(&stack, ft_lstnew(value)); // Pass the pointer to ft_lstnew.
 		i++;
 	}
