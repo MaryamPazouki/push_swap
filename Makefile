@@ -57,5 +57,8 @@ fclean: clean
 # Rebuild Everything
 re: fclean all
 
+leak: re
+	valgrind --leak-check=full ./push_swap
+
 # Phony Targets
 .PHONY: all clean fclean re

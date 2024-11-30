@@ -7,7 +7,6 @@ void ft_push_alltill3_ab(t_list **a, t_list **b)
     size_a = ft_lstsize(*a);
     while (size_a > 3) 
     {
-        //printf("push to b");
         ft_push_to_b(a, b, 0); // Push from stack_a to stack_b
         size_a--;
     }
@@ -74,6 +73,12 @@ void ft_sort(t_list **stack_a)
     else 
     {
         ft_push_alltill3_ab(stack_a, &stack_b); // Pass both stacks
+        /*t_list *temp = *stack_a;
+        while (temp)
+        {
+        printf("%ld \n ", temp->content); // Print the content of each node
+        temp = temp->next;            // Move to the next node
+        }*/
         ft_sort_a(stack_a, &stack_b);          // Sort the stacks
         ft_last_sort_a(stack_a);               // Final adjustment
     }

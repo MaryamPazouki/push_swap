@@ -3,7 +3,7 @@
 
 // This function calculates the required amount of rotation.
 
-// Calculations are done for ra+rb case.
+// Calculations are done for ra+rb cas
 int ft_cost_rarb(t_list *a, t_list *b, int value)
 {
     int target_position_a;
