@@ -81,33 +81,39 @@ int ft_check_duplicates(t_list *stack)
  * Processes command-line arguments to initialize a stack.
  * Handles both single-quoted input (argc == 2) and multiple arguments (argc > 2).
  */
-t_list	*ft_preprocess(int argc, char **argv)
+t_list *ft_preprocess(int argc, char **argv)
 {
-	t_list	*stack;
-	char	**split_sequence;
+    t_list *stack;
+    char **split_sequence;
 
-	stack = NULL;
+    stack = NULL;
 
-	if (argc < 2)
-		ft_error(); // No input provided
+    if (argc < 2)
+        ft_error(); // No input provided
 
-	if (argc == 2)
-	{
-		// Handle single quoted string
-		split_sequence = ft_split(argv[1], ' ');
-		if (!split_sequence)
-			ft_error(); // Allocation error
-		stack = ft_fill_stack(stack, split_sequence, 0);
-		ft_freestr(split_sequence); // Free allocated memory for split strings
-		free(split_sequence);
-	}
-	else
-	{
-		// Handle multiple arguments
-		stack = ft_fill_stack(stack, argv, 1); // Skip argv[0] (program name)
-	}
-	// Check for duplicate values in the stack
-	if (ft_check_duplicates(stack))
-		ft_error(); // Duplicate found, terminate with error
-	return stack;
+    if (argc == 2)
+    {
+        // Handle single quoted string
+        split_sequence = ft_split(argv[1], ' ');
+        if (!split_sequence)
+            ft_error(); // Allocation error
+
+        stack = ft_fill_stack(stack, split_sequence, 0);
+        
+        // Free each string in the split sequence array
+        ft_freestr(split_sequence); // Assuming ft_freestr frees each string in the array
+        free(split_sequence); // Free the array itself
+    }
+    else
+    {
+        // Handle multiple arguments
+        stack = ft_fill_stack(stack, argv, 1); // Skip argv[0] (program name)
+    }
+
+    // Check for duplicate values in the stack
+    if (ft_check_duplicates(stack))
+        ft_error(); // Duplicate found, terminate with error
+
+    return stack;
 }
+

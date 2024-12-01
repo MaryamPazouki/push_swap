@@ -52,8 +52,8 @@ int ft_optimal_cost(t_list *a, t_list *b)
 
     temp = b;    
     cost = ft_cost_rrarrb(a,b,temp->content); // initialize cost
-    printf("Calculating cost for value %ld: rarb=%d, rrarrb=%d, rarrb=%d, rrarb=%d\n", 
-       temp->content, ft_cost_rarb(a,b,temp->content), ft_cost_rrarrb(a,b,temp->content), ft_cost_rarrb(a,b,temp->content), ft_cost_rrarb(a,b,temp->content));
+    //printf("Calculating cost for value %ld: rarb=%d, rrarrb=%d, rarrb=%d, rrarb=%d\n", 
+    //   temp->content, ft_cost_rarb(a,b,temp->content), ft_cost_rrarrb(a,b,temp->content), ft_cost_rarrb(a,b,temp->content), ft_cost_rrarb(a,b,temp->content));
 
     while(temp)
     {

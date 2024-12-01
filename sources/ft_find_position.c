@@ -10,7 +10,7 @@ int ft_find_index(t_list *stack, int value)
         stack = stack->next;
         i++;
     }
-
+    stack->index = 0;
     // Value not found
     return -1;
 }

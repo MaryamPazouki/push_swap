@@ -27,3 +27,5 @@ int	main(int argc, char **argv)
 	ft_free(&a);
 	return (0);
 }
+
+// ARG=$(shuf -i 1-1000 -n 700) && ./push_swap $ARG | wc -l

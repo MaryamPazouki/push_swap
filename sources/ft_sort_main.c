@@ -22,7 +22,7 @@ t_list  **ft_sort_a(t_list **a, t_list **b) {
         temp = *b;
         opt_cost = ft_optimal_cost(*a, *b);
         
-        printf("calcuate the optimal cost %d \n", opt_cost);
+        //printf("calcuate the optimal cost %d \n", opt_cost);
         while(opt_cost > 0)
         { 
             if (opt_cost == ft_cost_rarb(*a, *b, temp->content))
