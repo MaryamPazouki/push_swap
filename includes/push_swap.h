@@ -65,10 +65,10 @@ int ft_move_rrarb(t_list **a, t_list **b, int value);
 int ft_move_rarrb(t_list **a, t_list **b, int value);
 int ft_move_rrarrb(t_list **a, t_list **b, int value);
 
-int ft_cost_rarb(t_list *a, t_list *b, int value);
-int ft_cost_rrarrb(t_list *a, t_list *b, int value);
-int ft_cost_rarrb(t_list *a, t_list *b, int value);
-int ft_cost_rrarb(t_list *a, t_list *b, int value);
+int ft_cost_rarb(t_list **a, t_list **b, int value);
+int ft_cost_rrarrb(t_list **a, t_list **b, int value);
+int ft_cost_rarrb(t_list **a, t_list **b, int value);
+int ft_cost_rrarb(t_list **a, t_list **b, int value);
 
 void ft_swap(t_list **stack);
 void ft_sa(t_list **a, int j);

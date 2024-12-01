@@ -1,5 +1,64 @@
 #include "push_swap.h"
 
+// This function rotates both stack_a and stack_b
+// in the same direction as required amount.
+int	ft_cost_rarb(t_list **a, t_list **b, int c)
+{
+	while ((*b)->content != c && ft_find_target_a(*a, c) > 0)
+			ft_rr(a, b, 0);
+	while ((*b)->content != c)
+			ft_rb(b, 0);
+	while (ft_find_target_a(*a, c) > 0)
+			ft_ra(a, 0);
+		ft_push_to_a(a, b, 0);
+	return (-1);
+}
+
+// This function rotate both stack_a and stack_b in the
+// reverse direction as required amount.
+int	ft_cost_rrarrb(t_list **a, t_list **b, int c)
+{
+	
+	while ((*b)->content != c && ft_find_target_a(*a, c) > 0)
+			ft_rrr(a, b, 0);
+	while ((*b)->content != c)
+			ft_rrb(b, 0);
+	while (ft_find_target_a(*a, c) > 0)
+			ft_rra(a, 0);
+		ft_push_to_a(a, b, 0);
+	return (-1);
+}
+
+// This function rotate the stack_a in reverse direction,
+// the stack_b in oppsite direction of stack_a as required amount.
+int	ft_cost_rrarb(t_list **a, t_list **b, int c)
+{
+	while (ft_find_target_a(*a, c) > 0)
+			ft_rra(a, 0);
+	while ((*b)->content != c)
+			ft_rb(b, 0);
+		ft_push_to_a(a, b, 0);
+	return (-1);
+}
+
+// This function rotate the stack_b in reverse direction,
+// the stack_a in oppsite direction of stack_a as required amount.
+int	ft_cost_rarrb(t_list **a, t_list **b, int c)
+{
+	while (ft_find_target_a(*a, c) > 0)
+			ft_ra(a, 0);
+	while ((*b)->content != c)
+			ft_rrb(b, 0);
+		ft_push_to_a(a, b, 0);
+	return (-1);
+}
+
+
+
+
+
+/* #include "push_swap.h"
+
 
 // This function calculates the required amount of rotation.
 
@@ -73,3 +132,4 @@ int ft_cost_rrarb(t_list *a, t_list *b, int value)
     cost += value_position_b;
     return(cost);
 }
+*/

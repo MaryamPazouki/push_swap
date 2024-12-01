@@ -25,20 +25,20 @@ t_list  **ft_sort_a(t_list **a, t_list **b) {
         printf("calcuate the optimal cost %d \n", opt_cost);
         while(opt_cost > 0)
         { 
-            if (opt_cost == ft_cost_rarb(*a, *b, temp->content) -1)
+            if (opt_cost == ft_cost_rarb(*a, *b, temp->content))
             {
                 //printf("calcuate the cost rrarrb %d\n", ft_cost_rarb(*a, *b, temp->content) );
                 opt_cost = ft_move_rarb(a, b, temp->content);
             
             }
-            else if (opt_cost == ft_cost_rrarrb(*a, *b, temp->content)-1)
+            else if (opt_cost == ft_cost_rrarrb(*a, *b, temp->content))
                 opt_cost = ft_move_rrarrb(a, b, temp->content);
-            else if (opt_cost == ft_cost_rrarb(*a, *b, temp->content)-1)
+            else if (opt_cost == ft_cost_rrarb(*a, *b, temp->content))
             {
                 opt_cost = ft_move_rrarb(a, b, temp->content);
                 //printf("calcuate the cost rrarb %d\n", ft_cost_rrarb(*a, *b, temp->content) );
             }
-            else if (opt_cost == ft_cost_rarrb(*a, *b, temp->content)-1)
+            else if (opt_cost == ft_cost_rarrb(*a, *b, temp->content))
                 opt_cost = ft_move_rarrb(a, b, temp->content);
             else 
                 temp = temp -> next;
