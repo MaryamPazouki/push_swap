@@ -54,7 +54,7 @@ t_list	*ft_preprocess(int argc, char **argv);
 	void sort_three_numbers(t_list **a);
 void ft_push_alltill3_ab(t_list **a, t_list **b);
 
-void ft_sort_a(t_list **a, t_list **b);
+t_list  **ft_sort_a(t_list **a, t_list **b);
 void ft_last_sort_a(t_list **a);
 void ft_sort(t_list **stack_a);
 

@@ -12,7 +12,7 @@ void ft_push_alltill3_ab(t_list **a, t_list **b)
     }
 }
 
-void ft_sort_a(t_list **a, t_list **b) {
+t_list  **ft_sort_a(t_list **a, t_list **b) {
     t_list *temp;
     int opt_cost;
 
@@ -43,6 +43,7 @@ void ft_sort_a(t_list **a, t_list **b) {
                 temp = temp -> next;
         }
     }
+    return(a);
 }
 
 void ft_last_sort_a(t_list **a) 
@@ -73,13 +74,7 @@ void ft_sort(t_list **stack_a)
     else 
     {
         ft_push_alltill3_ab(stack_a, &stack_b); // Pass both stacks
-        /*t_list *temp = *stack_a;
-        while (temp)
-        {
-        printf("%ld \n ", temp->content); // Print the content of each node
-        temp = temp->next;            // Move to the next node
-        }*/
-        ft_sort_a(stack_a, &stack_b);          // Sort the stacks
+        stack_a = ft_sort_a(stack_a, &stack_b);          // Sort the stacks
         ft_last_sort_a(stack_a);               // Final adjustment
     }
 }
