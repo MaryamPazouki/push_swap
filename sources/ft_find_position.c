@@ -1,7 +1,6 @@
 #include "push_swap.h"
 
-/*
-int ft_find_position(t_list *stack, int value) 
+int ft_find_index(t_list *stack, int value) 
 {
     int i = 0;
 
@@ -15,10 +14,10 @@ int ft_find_position(t_list *stack, int value)
     // Value not found
     return -1;
 }
-*/
 
 
-int	ft_find_position(t_list *a, int nbr)
+/*
+int	ft_find_index(t_list *a, int nbr)
 {
 	int		i;
 
@@ -31,3 +30,4 @@ int	ft_find_position(t_list *a, int nbr)
 	a->index = 0;
 	return (i);
 }
+*/

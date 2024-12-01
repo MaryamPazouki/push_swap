@@ -1,6 +1,34 @@
 
 #include "push_swap.h"
 
+
+int	ft_find_target_a(t_list *stack_a, int nbr_push)
+{
+	int		i;
+	t_list	*tmp;
+
+	i = 1;
+	if (nbr_push < stack_a->content && nbr_push > ft_lstlast(stack_a)->content)
+		i = 0;
+	else if (nbr_push > ft_max(stack_a) || nbr_push < ft_min(stack_a))
+		i = ft_find_index(stack_a, ft_min(stack_a));
+	else
+	{
+		tmp = stack_a->next;
+		while (stack_a->content > nbr_push || tmp->content < nbr_push)
+		{
+			stack_a = stack_a->next;
+			tmp = stack_a->next;
+			i++;
+		}
+	}
+	return (i);
+}
+
+
+
+/*
+
 int ft_find_target_a(t_list *stack_a, int push_value) 
 {
     if (!stack_a)
@@ -13,7 +41,7 @@ int ft_find_target_a(t_list *stack_a, int push_value)
 
     // Case: Value is larger than the max or smaller than the min -> Place before the min
     if (push_value > max_value || push_value < min_value) {
-        int pos = ft_find_position(stack_a, min_value);
+        int pos = ft_find_index(stack_a, min_value);
         printf("Push value %d > max (%d) or < min (%d). Target position: %d\n", 
                push_value, max_value, min_value, pos);
         return pos;
@@ -40,6 +68,7 @@ int ft_find_target_a(t_list *stack_a, int push_value)
 
     return 0; // Default to the top of the stack
 }
+*/
 
 
 

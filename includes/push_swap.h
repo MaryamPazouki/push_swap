@@ -20,8 +20,8 @@ int	ft_check_sorted(t_list *stack);
 
 void ft_error(void);
 
-int ft_find_position(t_list *stack, int value);
-
+//int ft_find_position(t_list *stack, int value);
+int	ft_find_index(t_list *a, int nbr);
 int ft_find_target_a(t_list *stack_a, int push_value);
 
 void ft_free(t_list **stack);
@@ -51,7 +51,7 @@ t_list	*ft_fill_stack(t_list *stack, char **sequence, int start_index);
 int 	ft_check_duplicates(t_list *stack);
 t_list	*ft_preprocess(int argc, char **argv);
 
-	void sort_three_numbers(t_list **a);
+void sort_three_numbers(t_list **a);
 void ft_push_alltill3_ab(t_list **a, t_list **b);
 
 t_list  **ft_sort_a(t_list **a, t_list **b);
@@ -65,10 +65,10 @@ int ft_move_rrarb(t_list **a, t_list **b, int value);
 int ft_move_rarrb(t_list **a, t_list **b, int value);
 int ft_move_rrarrb(t_list **a, t_list **b, int value);
 
-int ft_cost_rarb(t_list **a, t_list **b, int value);
-int ft_cost_rrarrb(t_list **a, t_list **b, int value);
-int ft_cost_rarrb(t_list **a, t_list **b, int value);
-int ft_cost_rrarb(t_list **a, t_list **b, int value);
+int ft_cost_rarb(t_list *a, t_list *b, int value);
+int ft_cost_rrarrb(t_list *a, t_list *b, int value);
+int ft_cost_rarrb(t_list *a, t_list *b, int value);
+int ft_cost_rrarb(t_list *a, t_list *b, int value);
 
 void ft_swap(t_list **stack);
 void ft_sa(t_list **a, int j);

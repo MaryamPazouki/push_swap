@@ -21,23 +21,16 @@ t_list  **ft_sort_a(t_list **a, t_list **b) {
     { // Continue until stack_b is empty
         temp = *b;
         opt_cost = ft_optimal_cost(*a, *b);
-        //printf(" start neue move:");
+        
         printf("calcuate the optimal cost %d \n", opt_cost);
         while(opt_cost > 0)
         { 
             if (opt_cost == ft_cost_rarb(*a, *b, temp->content))
-            {
-                //printf("calcuate the cost rrarrb %d\n", ft_cost_rarb(*a, *b, temp->content) );
                 opt_cost = ft_move_rarb(a, b, temp->content);
-            
-            }
             else if (opt_cost == ft_cost_rrarrb(*a, *b, temp->content))
                 opt_cost = ft_move_rrarrb(a, b, temp->content);
             else if (opt_cost == ft_cost_rrarb(*a, *b, temp->content))
-            {
                 opt_cost = ft_move_rrarb(a, b, temp->content);
-                //printf("calcuate the cost rrarb %d\n", ft_cost_rrarb(*a, *b, temp->content) );
-            }
             else if (opt_cost == ft_cost_rarrb(*a, *b, temp->content))
                 opt_cost = ft_move_rarrb(a, b, temp->content);
             else 
@@ -54,7 +47,7 @@ void ft_last_sort_a(t_list **a)
 {
     int i;
 
-    i = ft_find_position(*a, ft_min(*a));
+    i = ft_find_index(*a, ft_min(*a));
     if (i < ft_lstsize(*a) / 2) 
     {
         while ((*a)->content != ft_min(*a))
@@ -78,7 +71,7 @@ void ft_sort(t_list **stack_a)
     else 
     {
         ft_push_alltill3_ab(stack_a, &stack_b); // Pass both stacks
-        //sort_three_numbers(stack_a);
+        sort_three_numbers(stack_a);
         stack_a = ft_sort_a(stack_a, &stack_b);          // Sort the stacks
         ft_last_sort_a(stack_a);               // Final adjustment
     }

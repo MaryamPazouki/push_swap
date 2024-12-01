@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-
-
 int ft_move_rarb(t_list **a, t_list **b, int value)
 {
     // Rotate both a and b while the top of b doesn't contain the target value and there are still elements to process
