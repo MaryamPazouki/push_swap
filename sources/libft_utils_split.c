@@ -6,13 +6,11 @@
 /*   By: mpazouki <mpazouki@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:09:50 by mpazouki          #+#    #+#             */
-/*   Updated: 2024/12/19 17:09:52 by mpazouki         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:11:25 by mpazouki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 void	*ft_memcpy(void *dest, const void	*src, size_t	numBytes)
 {

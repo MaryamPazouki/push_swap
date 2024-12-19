@@ -6,7 +6,7 @@
 /*   By: mpazouki <mpazouki@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:23 by mpazouki          #+#    #+#             */
-/*   Updated: 2024/12/19 17:10:25 by mpazouki         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:49:01 by mpazouki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,15 @@
 int	main(int argc, char **argv)
 {
 	t_list	*a;
-	
-	// here we check all aspect of correct arguments
+
 	a = ft_preprocess(argc, argv);
 	if (!a)
 	{
 		ft_free(&a);
 		ft_error();
 	}
-	// check if stack a is already sorted! 
 	if (!ft_check_sorted(a))
 		ft_sort(&a);
-	
-	// t_list *temp = a;
-    // while (temp)
-    // {
-    //     printf("%ld ", temp->content); // Print the content of each node
-    //     temp = temp->next;            // Move to the next node
-    // }
-    // printf("\n");
-
 	ft_free(&a);
 	return (0);
 }
