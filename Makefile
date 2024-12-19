@@ -26,7 +26,10 @@ SRC = $(SRC_DIR)push_swap.c \
       $(SRC_DIR)list_utils_libft.c \
       $(SRC_DIR)move.c \
       $(SRC_DIR)moves_cost_utils.c \
-      $(SRC_DIR)moves_utils.c
+      $(SRC_DIR)move_push.c\
+      $(SRC_DIR)move_rotate.c\
+      $(SRC_DIR)move_reverse.c\
+      $(SRC_DIR)move_swap.c
 
 # Object Files
 OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
