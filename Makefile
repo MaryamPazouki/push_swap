@@ -23,7 +23,9 @@ SRC = $(SRC_DIR)push_swap.c \
       $(SRC_DIR)ft_sort_3.c \
       $(SRC_DIR)ft_sort_main.c \
       $(SRC_DIR)libft_utils_split.c \
-      $(SRC_DIR)list_utils_libft.c \
+      $(SRC_DIR)libft_utils_split_II.c \
+      $(SRC_DIR)libft_utils_list.c \
+      $(SRC_DIR)libft_utils_list_II.c \
       $(SRC_DIR)move.c \
       $(SRC_DIR)moves_cost_utils.c \
       $(SRC_DIR)move_push.c\
