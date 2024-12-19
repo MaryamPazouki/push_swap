@@ -109,7 +109,7 @@ t_list *ft_preprocess(int argc, char **argv)
         
         // Free each string in the split sequence array
         ft_freestr(split_sequence); // Assuming ft_freestr frees each string in the array
-        free(split_sequence); // Free the array itself
+        // free(split_sequence); // Free the array itself
     }
     else
     {

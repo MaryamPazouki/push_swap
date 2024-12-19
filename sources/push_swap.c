@@ -27,13 +27,13 @@ int	main(int argc, char **argv)
 	if (!ft_check_sorted(a))
 		ft_sort(&a);
 	
-	t_list *temp = a;
-    while (temp)
-    {
-        printf("%ld ", temp->content); // Print the content of each node
-        temp = temp->next;            // Move to the next node
-    }
-    printf("\n");
+	// t_list *temp = a;
+    // while (temp)
+    // {
+    //     printf("%ld ", temp->content); // Print the content of each node
+    //     temp = temp->next;            // Move to the next node
+    // }
+    // printf("\n");
 
 	ft_free(&a);
 	return (0);
