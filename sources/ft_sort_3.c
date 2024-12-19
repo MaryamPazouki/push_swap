@@ -6,50 +6,78 @@
 /*   By: mpazouki <mpazouki@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:09:35 by mpazouki          #+#    #+#             */
-/*   Updated: 2024/12/19 17:09:37 by mpazouki         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:27:20 by mpazouki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-// Function to sort a stack of 3 numbers
-void sort_three_numbers(t_list **a)
+void	sort_three_numbers(t_list **a)
 {
-    int first = (*a)->content;
-    int second = (*a)->next->content;
-    int third = (*a)->next->next->content;
+	int	first;
+	int	second;
+	int	third;
 
-    if (first > second && second < third && first < third)
-    {
-        ft_sa(a,0); // 2 1 3 -> 1 2 3
-        return;
-    }
-
-    if (first < second && second > third && first > third)
-    {
-        ft_rra(a,0); // 2 3 1 -> 1 2 3
-        return;
-    }
-
-    if (first > second && second > third)
-    {
-        ft_ra(a,0); // 3 2 1 -> 2 1 3
-        ft_sa(a,0); // 2 1 3 -> 1 2 3
-        return;
-    }
-
-    if (first > second && second < third && first > third)
-    {
-        ft_ra(a,0); // 3 1 2 -> 1 2 3
-        return;
-    }
-
-    if (first < second && second > third && first < third)
-    {
-        ft_ra(a,0); // 1 3 2 -> 3 2 1 -> 2 1 3
-        ft_ra(a,0);
-        ft_sa(a,0);
-        return;
-    }
+	first = (*a)-> content;
+	second = (*a)-> next -> content;
+	third = (*a)-> next -> next -> content;
+	if (first > second && second < third && first < third)
+		ft_sa(a, 0);
+	else if (first < second && second > third && first > third)
+		ft_rra(a, 0);
+	else if (first > second && second > third)
+	{
+		ft_ra(a, 0);
+		ft_sa(a, 0);
+	}
+	else if (first > second && second < third && first > third)
+		ft_ra(a, 0);
+	else if (first < second && second > third && first < third)
+	{
+		ft_ra(a, 0);
+		ft_ra(a, 0);
+		ft_sa(a, 0);
+	}
 }
+
+/*
+void	sort_three_numbers(t_list **a)
+{
+int first;
+int second;
+int third; 
+
+first = (*a)->content;
+second = (*a)->next->content;
+third = (*a)->next->next->content;
+if (first > second && second < third && first < third)
+{
+	ft_sa(a, 0);
+	return ;
+}
+if (first < second && second > third && first > third)
+{
+	ft_rra(a, 0);
+	return ;
+}
+if (first > second && second > third)
+{
+	ft_ra(a,0);
+	ft_sa(a,0);
+	return ;
+}
+if (first > second && second < third && first > third)
+{
+	ft_ra(a,0);
+	return ;
+}
+if (first < second && second > third && first < third)
+{
+	ft_ra(a,0);
+	ft_ra(a,0);
+	ft_sa(a,0);
+	return ;
+}
+}
+
+*/
