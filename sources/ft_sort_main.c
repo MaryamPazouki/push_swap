@@ -73,9 +73,16 @@ void	ft_sort(t_list **stack_a)
 
 	stack_b = NULL;
 	if (ft_lstsize(*stack_a) == 2)
+	{
+		printf("Sorting 2 elements...\n");
 		ft_sa(stack_a, 0);
-	if (ft_lstsize(*stack_a) == 3)
+		return ;
+	}
+	else if (ft_lstsize(*stack_a) == 3)
+	{
 		sort_three_numbers(stack_a);
+		return ;
+	}
 	else
 	{
 		ft_push_alltill3_ab(stack_a, &stack_b);
